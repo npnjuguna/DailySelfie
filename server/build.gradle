@@ -1,0 +1,73 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+        classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot' 
+apply plugin: 'io.spring.dependency-management' 
+
+jar {
+    baseName = 'server'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.spring.io/milestone' }
+    maven { url "http://files.couchbase.com/maven2/" }
+}
+
+
+dependencies {
+    // tag::actuator[]
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    // end::actuator[]
+    // compile('org.springframework.boot:spring-boot-starter-security')
+    // tag::jetty[]
+    compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+    compile('org.springframework.boot:spring-boot-starter-jetty')
+    // end::jetty[]
+    compile 'org.springframework.data:spring-data-couchbase:2.0.0.M1'
+    compile("com.squareup.retrofit:retrofit:1.9.0")
+    compile("com.google.guava:guava:17.0")
+    compile("commons-io:commons-io:2.4")
+    compile 'org.apache.commons:commons-lang3:3.0'
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'org.jscience:jscience:4.3.1'
+    compile 'com.google.api-client:google-api-client:1.20.0'
+    compile 'com.google.api-client:google-api-client-jackson2:1.20.0'
+    compile 'com.jhlabs:filters:2.0.235-1'
+    
+    compile project(':common')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('junit:junit')
+    testCompile('com.jayway.jsonpath:json-path') 
+}
+
+
+eclipse {
+    classpath {
+         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}

@@ -1,0 +1,101 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.njuguna.dailyselfie"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+//        // Enabling multidex support.
+//        multiDexEnabled true
+
+        testApplicationId "ke.co.cisp.android.sf.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    productFlavors {
+        // Define separate dev and prod product flavors.
+        dev {
+            // dev utilizes minSDKVersion = 21 to allow the Android gradle plugin
+            // to pre-dex each module and produce an APK that can be tested on
+            // Android Lollipop without time consuming dex merging processes.
+            minSdkVersion 15
+        }
+        prod {
+            // The actual minSdkVersion for the application.
+            minSdkVersion 10
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        warning 'InvalidPackage'
+        abortOnError false
+    }
+}
+repositories {
+    maven { url "http://files.couchbase.com/maven2/" }
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':common')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    // Dependency for Google Sign-In
+    compile 'com.google.android.gms:play-services-auth:8.3.0'
+    compile 'com.couchbase.lite:couchbase-lite-android:1.0.4'
+    compile 'com.facebook.android:facebook-android-sdk:4.7.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.squareup.okhttp:okhttp:2.3.0'
+    compile 'com.makeramen:roundedimageview:2.1.0'
+    compile('com.digits.sdk.android:digits:1.9.0@aar') {
+        transitive = true;
+    }
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.0@aar') {
+        exclude module: 'appcompat-v7'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-annotations'
+    }
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    compile 'commons-codec:commons-codec:1.10'
+
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+}

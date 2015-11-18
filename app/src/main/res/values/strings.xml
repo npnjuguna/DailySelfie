@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Daily Selfie</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_label_selfies">Selfies</string>
+    <string name="nav_label_settings">Settings</string>
+    <string name="nav_label_send">Send</string>
+    <string name="nav_label_share">Share</string>
+    <string name="label_login">Login</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+
+    <!-- Sign-in status messages -->
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="signed_in">Signed in</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="signed_out">Signed out</string>
+    <string name="signed_in_err">"Error: please check logs."</string>
+    <string name="error_null_person">
+        Error: Plus.PeopleApi.getCurrentPerson returned null. Ensure that the Google+ API is
+        enabled for your project, you have a properly configured google-services.json file
+        and that your device has an internet connection.
+    </string>
+    <string name="loading">Loading…</string>
+    <string name="auth_code_fmt">Auth Code: %s</string>
+    <string name="id_token_fmt">ID Token: %s</string>
+
+    <!-- Google Play Services error for Toast -->
+    <string name="play_services_error_fmt">Google Play Services Error: %i</string>
+
+    <!-- Button labels -->
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+
+    <!-- Content Description for images -->
+    <string name="desc_google_icon">Google Logo</string>
+
+    <!-- Rationale for asking for Contacts -->
+    <string name="contacts_permission_rationale">Contacts access is needed in order to retrieve your email address.</string>
+    <string name="signed_in_label">You are signed in as:</string>
+    <string name="http_internal_error">Service error processing request. Please Try again.</string>
+    <string name="http_not_found">Registration not found!</string>
+    <string name="http_conflict">Registration already exists!</string>
+    <string name="http_generic">Problem with connection to service. You need a connection to the Internet.</string>
+    <string name="google_sign_failed">Google sign in problem. You need an Internet Connection.</string>
+    <string name="http_bad_request">Invalid request or authentication token!</string>
+    <string name="close_login_activity">Close Login Window</string>
+    <string name="exit_app">Exit Application</string>
+    <string name="title_activity_selfie_detail">SelfieDetailActivity</string>
+    <string name="action_bar_menu_save">Save</string>
+    <string name="action_bar_menu_process">Process</string>
+    <string name="selfies_empty_listview">There are no selfies yet! Take some.</string>
+    <string name="pref_sync_only_on_wifi">Sync only on WiFi</string>
+    <string name="pref_sync_only_on_wifi_summ">Sync data in the background on when connected to internet on WiFi</string>
+    <string name="pref_remider_time">Reminder time</string>
+    <string name="pref_remider_time_summ">Set the time you will be reminded to take a selfie</string>
+    <string name="set">Set</string>
+    <string name="cancel">Cancel</string>
+    <string name="reminder_alert">Daily Selfie Reminder</string>
+    <string name="take_selfie">Time to take your daily selfie.</string>
+    <string name="fragment_selfie_edit_title">Edit Selfie</string>
+    <string name="fragment_selfie_view_title">View Selfie</string>
+    <string name="fragment_selfie_insert_title">Add Selfie</string>
+    <string name="selfie_dialog_delete_message">Delete Selfie?</string>
+    <string name="delete">Delete</string>
+    <string name="action_bar_menu_delete">Delete</string>
+    <string name="effect_choose_label">Apply</string>
+    <string name="effect_choose_title">Choose Effect</string>
+    <string-array name="effects">
+        <item>Gray Scale</item>
+        <item>Invert</item>
+        <item>Weave</item>
+        <item>Smear</item>
+    </string-array>
+
+</resources>
