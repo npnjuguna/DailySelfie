@@ -2,6 +2,7 @@
 Coursera Capstone Project Submission - Concurrent Daily Selfie
 
 # Build
+This project is best build with Android Studio. 
 
  1. Clone the repository 
  2. Create a google-services.json from the Google Sign In APIs website
